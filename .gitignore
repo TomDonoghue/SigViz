@@ -1,2 +1,8 @@
 # ignore notebook checkpoint files
 *.ipynb_checkpoints/*
+
+# Ignore pycache
+**/__pycache__/**
+
+# Ignore outputs folder
+/notebooks/outputs/*

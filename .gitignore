@@ -4,5 +4,9 @@
 # Ignore pycache
 **/__pycache__/**
 
+# Ignore docsite things
+/docs/_site/*
+docs/.jekyll-cache/
+
 # Ignore outputs folder
 /notebooks/outputs/*

@@ -29,22 +29,27 @@ Visualizations created in this repository include:
 - animated visualizers exploring the Fast Fourier Transform (FFT)
 - animated visualizers for convolution
 
-### Examples
+## Examples
 
 A subset of visualizers are shown here, as examples.
 
 For the full set of visualizers, see the
 [website](https://tomdonoghue.github.io/SigViz/).
 
+### Time Series
+
 A time series gif, showng a bursty combined signal.
 
 ![combined burst signal](/gifs/comb_burst.gif)
+
+### Fast Fourier Transform
 
 An FFT gif, decomposing a signal with aperiodic activity and a periodic component:
 
 ![FFT periodic gif](/gifs/fft-pe-inf.gif)
 
-A convolution gif, showing
+### Convolution
+
+A convolution gif, showing the convolution of a signal (grey) with a Gaussian kernel (red). 
 
 ![convolution](/gifs/convolution-short.gif)
-

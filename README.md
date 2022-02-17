@@ -1,32 +1,50 @@
 # Signal Visualizers
 
-This is the source repository for creating animated visualizations of signals.
+This is the source repository for the `SigViz` collection of animated visualizers of signal processing.
+
+[![Website](https://img.shields.io/badge/site-tomdonoghue.github.io/SigViz-informational.svg)](https://tomdonoghue.github.io/SigViz/)
 
 ## Overview
 
-This repository includes the code to create the animated visualization, as well as copies of the final outputs. 
+This repository includes the code to create the animated visualization, as well as copies of the final outputs.
+
+To view the visualizers, you can visit the SigViz
+[website](https://tomdonoghue.github.io/SigViz/).
 
 ## ReUse
 
-Copies of the animated visualizations are available in the `gifs/` folder. 
-These visualization are available for re-use under a Creative Commons 
-[CC-BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) 
-license, meaning all non-commercial purposes are fine. 
+Copies of the animated visualizations are available in the `gifs/` folder.
+These visualization are available for re-use under a Creative Commons
+[CC-BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)
+license, meaning all non-commercial purposes are fine.
 
 The code to create these visualizations is available in the `notebooks/` folder, under the
-[MIT License](https://github.com/TomDonoghue/SigViz/blob/main/notebooks/LICENSE), 
-meaning if you wish use and adapt this code, you may do so. 
+[MIT License](https://github.com/TomDonoghue/SigViz/blob/main/notebooks/LICENSE),
+meaning if you wish to use and adapt this code, you may do so.
 
 ## Visualizations
 
-This repository creates the following visualizations:
+Visualizations created in this repository include:
+- creating and visualization time series of periodic, aperiodic, and periodic signals
+- animated visualizers exploring the Fast Fourier Transform (FFT)
+- animated visualizers for convolution
 
-### FFT Visualizer
+### Examples
 
-The FFT gif, decomposing a purely aperiodic signal:
+A subset of visualizers are shown here, as examples.
 
-![FFT aperiodic gif](/gifs/fft-ap-inf.gif)
+For the full set of visualizers, see the
+[website](https://tomdonoghue.github.io/SigViz/).
 
-The FFT gif, decomposing a signal with aperiodic activity and a periodic component:
+A time series gif, showng a bursty combined signal.
+
+![combined burst signal](/gifs/comb_burst.gif)
+
+An FFT gif, decomposing a signal with aperiodic activity and a periodic component:
 
 ![FFT periodic gif](/gifs/fft-pe-inf.gif)
+
+A convolution gif, showing
+
+![convolution](/gifs/convolution-short.gif)
+

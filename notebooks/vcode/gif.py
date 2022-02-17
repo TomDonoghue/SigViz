@@ -10,10 +10,13 @@ import matplotlib.pyplot as plt
 ###################################################################################################
 
 def _gif_plot_output(fig, save, build_ind, label='fig', sleep=0.01, folder='outputs'):
-    """Helper function for showing and/or saving out gif images."""
+    """Helper function for showing and/or saving out gif images.
+    Notes: if set to save, the plot is not displayed.
+    """
 
     if save:
-        fig.savefig(folder + '/' + label + '/gif_' + str(build_ind), bbox_inches="tight", dpi=300)
+        fig.savefig(folder + '/' + label + '/gif_' + str(build_ind),
+                    bbox_inches="tight", dpi=300, transparent=False)
         plt.close()
     else:
         plt.show();

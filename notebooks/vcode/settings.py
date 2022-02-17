@@ -1,4 +1,4 @@
-""""Settings."""
+""""Plot settings."""
 
 from itertools import cycle
 

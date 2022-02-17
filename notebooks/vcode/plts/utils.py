@@ -1,4 +1,4 @@
-"""Helper functions for creating gifs."""
+"""Utility functions for creating plotting / gifs."""
 
 from IPython.display import clear_output
 
@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 ###################################################################################################
 ###################################################################################################
 
-def _gif_plot_output(fig, save, build_ind, label='fig', sleep=0.01, folder='outputs'):
+def animate_plot(fig, save, build_ind, label='fig', sleep=0.01, folder='outputs'):
     """Helper function for showing and/or saving out gif images.
     Notes: if set to save, the plot is not displayed.
     """

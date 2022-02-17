@@ -1,4 +1,4 @@
-"""Functions for computing measures of interest."""
+"""Functions for computing FFT measures."""
 
 import cmath
 

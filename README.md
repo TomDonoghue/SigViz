@@ -15,8 +15,8 @@ To view the visualizers, you can visit the SigViz
 
 Copies of the animated visualizations are available in the `gifs/` folder.
 These visualization are available for re-use under a Creative Commons
-[CC-BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)
-license, meaning all non-commercial purposes are fine.
+[CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+license, meaning re-use, with attribution, is allowed.
 
 The code to create these visualizations is available in the `notebooks/` folder, under the
 [MIT License](https://github.com/TomDonoghue/SigViz/blob/main/notebooks/LICENSE),

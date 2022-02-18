@@ -40,16 +40,16 @@ For the full set of visualizers, see the
 
 A time series gif, showng a bursty combined signal.
 
-![combined burst signal](/gifs/comb_burst.gif)
+![combined burst signal](/gifs/ts-comb-burst.gif)
 
 ### Fast Fourier Transform
 
 An FFT gif, decomposing a signal with aperiodic activity and a periodic component:
 
-![FFT periodic gif](/gifs/fft-pe-inf.gif)
+![FFT periodic gif](/gifs/fft-periodic.gif)
 
 ### Convolution
 
-A convolution gif, showing the convolution of a signal (grey) with a Gaussian kernel (red). 
+A convolution gif, showing the convolution of a signal (grey) with a Gaussian kernel (red).
 
 ![convolution](/gifs/convolution-short.gif)

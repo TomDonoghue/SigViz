@@ -29,7 +29,7 @@ The following plots show different kinds of simulated time series.
 
 First, we have an oscillatory signal, showing rhythmic activity:
 
-![ts-osc](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/ts-osc.gif)
+![ts-osc](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/01-timeseries/ts-osc.gif)
 
 #### Aperiodic Signals
 
@@ -37,20 +37,20 @@ Next, we will explore some aperiodic signals.
 
 First, white noise, defined as having equal power across all frequencies (a flat power spectrum):
 
-![ts-white](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/ts-white-noise.gif)
+![ts-white](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/01-timeseries/ts-white-noise.gif)
 
 <br>
 
 Next, we have pink noise, which has a pattern of decreasing power
 across increasing frequencies:
 
-![ts-pink](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/ts-pink-noise.gif)
+![ts-pink](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/01-timeseries/ts-pink-noise.gif)
 
 <br>
 
 Finally, we have brown noise, with has a steeper drop-off of power across increasing frequencies:
 
-![ts-brown](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/ts-brown-noise.gif)
+![ts-brown](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/01-timeseries/ts-brown-noise.gif)
 
 <br>
 
@@ -58,11 +58,11 @@ Finally, we have brown noise, with has a steeper drop-off of power across increa
 
 Next up, we have 'combined signals', which are a combination of periodic and aperiodic components:
 
-![ts-comb](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/ts-comb.gif)
+![ts-comb](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/01-timeseries/ts-comb.gif)
 
 Finally, we have a bursty signal:
 
-![ts-comb-burst](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/ts-comb-burst.gif)
+![ts-comb-burst](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/01-timeseries/ts-comb-burst.gif)
 
 
 ### Fourier Transforms
@@ -73,7 +73,7 @@ In the following visualization, a time series (bottom left, black) is reconstruc
 
 In the following, the time series is an aperiodic, pink noise signal, decomponsed by an FFT:
 
-![fft-ap](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/fft-aperiodic.gif)
+![fft-ap](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/02-fft/fft-aperiodic.gif)
 
 Note that in the above, the signal is completely non-rhythmic.
 
@@ -85,7 +85,7 @@ decomposed by a sum on sinusoids.
 In the next signal, there is both an aperiodic component (pink noise), as well as
 a periodic component (a 10 Hz rhythm).
 
-![fft-pe](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/fft-periodic.gif)
+![fft-pe](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/02-fft/fft-periodic.gif)
 
 In the above signal, note how the prominent rhythm is fit by a sine wave which
 stands out from the other frequencies, capturing the higher power in this frequency.
@@ -98,13 +98,13 @@ Here, a signal (grey) is convolved with a gaussian kernel (red), meaning we "sli
 
 In this first example, we will examine convolution using a long kernel.
 
-![conv-long](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/convolution-long.gif)
+![conv-long](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/03-convolution/convolution-long.gif)
 
 #### Short Kernel
 
 Next, we can examine how things are different when we use a shorter kernel.
 
-![conv-short](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/convolution-short.gif)
+![conv-short](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/03-convolution/convolution-short.gif)
 
 #### Technical Notes
 

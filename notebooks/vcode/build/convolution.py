@@ -17,8 +17,11 @@ def make_axes():
     """Make axes for combined plot."""
 
     fig = plt.figure()
-    ax1 = fig.add_axes([0.0, 0.5, 1.7, 0.45])
-    ax2 = fig.add_axes([0.0, 0.0, 1.7, 0.45])
+    #ax1 = fig.add_axes([0.0, 0.5, 1.7, 0.45])
+    #ax2 = fig.add_axes([0.0, 0.0, 1.7, 0.45])
+
+    ax1 = fig.add_axes([0.0, 0.3, 1.85, 0.25])
+    ax2 = fig.add_axes([0.0, 0.0, 1.85, 0.25])
 
     return fig, [ax1, ax2]
 
@@ -54,7 +57,7 @@ def build_convolution_output(sig, kernel, sleep=0.025):
         animate_plot(plt.gcf(), False, ind, sleep=sleep)
 
 
-def build_all(sig, kernel, sleep=0.025, label='conv', save=False):
+def build_all(sig, kernel, sleep=0.025, label='conv', save=False, **kwargs):
     """Build all plots together for convolution visualizer."""
 
     samps = create_samples(len(kernel))
@@ -69,7 +72,7 @@ def build_all(sig, kernel, sleep=0.025, label='conv', save=False):
 
         convolved[ind+halfwid] = np.dot(sig[samps+ind], kernel)
 
-        plot_sig_kernel(sig, samps+ind, kernel, ax=axes[0])
-        plot_convolution(samples, convolved, ax=axes[1])
+        plot_sig_kernel(sig, samps+ind, kernel, ax=axes[0], **kwargs)
+        plot_convolution(samples, convolved, ax=axes[1], **kwargs)
 
         animate_plot(fig, save, ind, label='03_' + label, sleep=sleep)

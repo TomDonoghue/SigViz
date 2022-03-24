@@ -5,6 +5,7 @@ from itertools import repeat
 
 import numpy as np
 
+from fooof.plts.utils import add_shades
 from neurodsp.plts.utils import check_ax
 
 ###################################################################################################
@@ -69,8 +70,8 @@ def plot_spectra(freqs, powers, log_freqs=True, log_powers=True, xlim=None, ylim
         add_shades(ax, shade_ranges, shade_colors, logged=log_freqs)
 
     if xlim:
-        ax.set_xlim(xlim)
+        ax.set_xlim(np.log10(xlim) if log_freqs else xlim)
     if ylim:
-        ax.set_ylim(ylim)
+        ax.set_ylim(np.log10(ylim) if log_powers else ylim)
 
     ax.set(xticks=[], yticks=[], xlabel=None, ylabel=None);

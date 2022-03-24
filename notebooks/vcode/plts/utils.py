@@ -15,8 +15,8 @@ def animate_plot(fig, save, build_ind, label='fig', sleep=0.01, folder='outputs'
     """
 
     if save:
-        fig.savefig(folder + '/' + label + '/gif_' + str(build_ind),
-                    bbox_inches="tight", dpi=300, transparent=False)
+        fig.savefig(folder + '/' + label + '/gif_' + str(build_ind) + '.jpg',
+                    bbox_inches="tight", dpi=600, transparent=False)
         plt.close()
     else:
         plt.show();

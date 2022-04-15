@@ -5,14 +5,14 @@ import matplotlib.pyplot as plt
 
 from neurodsp.spectral import compute_spectrum, trim_spectrum
 
-from vcode.plts.models import *
-from vcode.build.models import *
-from vcode.measures.models import *
-from vcode.settings.models import *
+from vcode.plts.base import plot_table
+from vcode.plts.settings import TITLE_FD
+from vcode.plts.timeseries import plot_timeseries
+from vcode.plts.utils import clear_output, animate_plot
+from vcode.plts.models import plot_model_spectrum, add_model_text
 
 from vcode.utils.data import yield_sig
-from vcode.plts.utils import clear_output, animate_plot
-from vcode.plts.settings import TITLE_FD
+from vcode.measures.models import get_features
 from vcode.measures.spectra import fit_specparam
 
 ###################################################################################################
@@ -20,7 +20,7 @@ from vcode.measures.spectra import fit_specparam
 
 ### AXES
 
-def make_axes():
+def make_axes_model():
     """Make axes for combined plot.
 
     Notes:
@@ -38,7 +38,7 @@ def make_axes():
     return fig, [ax1, ax2, ax3, ax4, ax5]
 
 ## THIS WAS FOR A SMALLER PLOT SIZE
-# def make_axes():
+# def make_axes_model():
 
 #     fig = plt.figure()
 #     ax1 = fig.add_axes([0.0, 1.1, 0.4, 0.5])
@@ -53,26 +53,34 @@ def make_axes():
 
 ### BUILDERS
 
-def build_all(sig, model, img, n_build=np.inf, sleep=0.05, label='model', save=False, **kwargs):
+def build_model(sig, fs, model, img, f_range=[2, 50], sparam={}, n_build=np.inf,
+                sleep=0.05, save=False, label='model', **kwargs):
     """Build all plots together."""
 
-    sig_yielder = yield_sig(sig, start=START, size=SIZE, step=STEP)
+    # Step settings
+    start = 1000
+    size = 1000
+    step = 3
+
+    feat_kwargs = {}
+
+    sig_yielder = yield_sig(sig, start=start, size=size, step=step)
 
     for ind in range(n_build):
 
         clear_output(wait=True)
 
-        fig, axes = make_axes()
+        fig, axes = make_axes_model()
 
-        # Define empty kwargs to pass extra things
-        kwargs = {}
+        # Default plot kwargs, if not provided
+        kwargs.setdefault('xlim', f_range)
 
         # Compute needed things
-        spect_sig = sig[START + STEP * ind-SIZE:START + STEP * ind+SIZE]
-        freqs, powers = trim_spectrum(*compute_spectrum(spect_sig, fs=FS), F_RANGE)
+        spect_sig = sig[start + step * ind-size:start + step * ind+size]
+        freqs, powers = trim_spectrum(*compute_spectrum(spect_sig, fs=fs), f_range)
 
         if model == 'peap':
-            kwargs['fm'] = fit_specparam(freqs, powers, **SPARAM_SETTINGS)
+            feat_kwargs['fm'] = fit_specparam(freqs, powers, **sparam)
 
         # Axis 0
         axes[0].imshow(img)
@@ -87,11 +95,11 @@ def build_all(sig, model, img, n_build=np.inf, sleep=0.05, label='model', save=F
         add_model_text(model, ax=axes[2])
 
         # Axis 3
-        plot_model_spectrum(model, freqs, powers, ax=axes[3], **kwargs)
+        plot_model_spectrum(model, freqs, powers, ax=axes[3], **{**kwargs, **feat_kwargs})
         axes[3].set_title('Spectral Representation', fontdict=TITLE_FD)
 
         # Axis 4
-        table_data = get_features(model, freqs, powers, **kwargs)
+        table_data = get_features(model, freqs, powers, **feat_kwargs)
         plot_table(table_data, ax=axes[4])
         axes[4].set_title('Features', fontdict=TITLE_FD)
 

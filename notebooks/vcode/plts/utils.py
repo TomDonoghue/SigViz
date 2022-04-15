@@ -1,8 +1,8 @@
 """Utility functions for creating plotting / gifs."""
 
-from IPython.display import clear_output
-
 import time
+
+from IPython.display import clear_output
 
 import matplotlib.pyplot as plt
 
@@ -19,8 +19,10 @@ def animate_plot(fig, save, build_ind, label='fig', sleep=0.01, folder='outputs'
                     bbox_inches="tight", dpi=600, transparent=False)
         plt.close()
     else:
-        plt.show();
+        plt.show()
         time.sleep(sleep)
 
-# Helper function to pass through for custom styling
-def passer(*args, **kwargs): pass
+
+def passer(*args, **kwargs):
+    """Helper function to pass through for custom styling."""
+    pass

@@ -44,7 +44,7 @@ def plot_phases(phases, ax=None):
     for phase in phases:
         ax.plot([0, phase], [0, 1], lw=4, alpha=0.5)
 
-    ax.set(xticklabels=[], yticklabels=[]);
+    ax.set(xticklabels=[], yticklabels=[])
 
 
 def plot_powers(freqs, powers, log_powers=False, ax=None):
@@ -57,4 +57,4 @@ def plot_powers(freqs, powers, log_powers=False, ax=None):
         powers = np.log10(powers)
 
     ax.scatter(freqs, powers, c=COLORS_LST[0:len(freqs)])
-    ax.set(xticks=[], yticks=[]);
+    ax.set(xticks=[], yticks=[])

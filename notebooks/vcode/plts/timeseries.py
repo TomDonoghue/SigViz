@@ -39,7 +39,7 @@ def plot_timeseries(signals, shade=None, colors=None, xlim=None, ylim=None,
     if shade:
         ax.axvspan(*ax.get_xlim(), alpha=0.2, color=shade)
 
-    ax.set(xticks=[], yticks=[], xlabel=None, ylabel=None);
+    ax.set(xticks=[], yticks=[], xlabel=None, ylabel=None)
 
 
 def plot_spectra(freqs, powers, log_freqs=True, log_powers=True, xlim=None, ylim=None,
@@ -74,4 +74,4 @@ def plot_spectra(freqs, powers, log_freqs=True, log_powers=True, xlim=None, ylim
     if ylim:
         ax.set_ylim(np.log10(ylim) if log_powers else ylim)
 
-    ax.set(xticks=[], yticks=[], xlabel=None, ylabel=None);
+    ax.set(xticks=[], yticks=[], xlabel=None, ylabel=None)

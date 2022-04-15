@@ -18,7 +18,7 @@ def plot_sig_kernel(sig, samps, kernel, ax=None, **kwargs):
     ax.plot(samps, kernel*25, color='red', alpha=0.75)
 
     ax.set(xlim=[0, len(sig)], ylim=kwargs.pop('ylim', [-3.5, 3.5]))
-    ax.set(xticks=[], yticks=[], xlabel='', ylabel='');
+    ax.set(xticks=[], yticks=[], xlabel='', ylabel='')
 
 
 def plot_convolution(samples, convolved, ax=None, **kwargs):
@@ -32,4 +32,4 @@ def plot_convolution(samples, convolved, ax=None, **kwargs):
     ax.plot(samples[ind], convolved[ind], '.', markersize=12, color='green', alpha=0.75)
 
     ax.set(xlim=[0, len(samples)], ylim=kwargs.pop('ylim', [-3.5, 3.5]))
-    ax.set(xticks=[], yticks=[], xlabel='', ylabel='');
+    ax.set(xticks=[], yticks=[], xlabel='', ylabel='')

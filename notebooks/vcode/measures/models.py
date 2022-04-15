@@ -14,6 +14,7 @@ from vcode.settings.bands import BANDS, LABELS
 ## FEATURES
 
 def get_features(model, freqs, powers, **kwargs):
+    """Get features for models visualizer."""
 
     funcs = {
         'freq' : get_features_freq,
@@ -24,6 +25,7 @@ def get_features(model, freqs, powers, **kwargs):
     return funcs[model](freqs, powers, **kwargs)
 
 def get_features_freq(freqs, powers):
+    """Get features for frequency model."""
 
     extract = np.array([5, 10, 15, 20, 25])
     values = [powers[find_nearest_ind(freqs, freq)] for freq in extract]
@@ -35,6 +37,7 @@ def get_features_freq(freqs, powers):
     return col_data
 
 def get_features_band(freqs, powers):
+    """Get features for bands model."""
 
     powers = [compute_abs_power(freqs, powers, band) for band in BANDS.definitions]
     powers = ['{:1.3f}'.format(val) for val in powers]
@@ -43,6 +46,7 @@ def get_features_band(freqs, powers):
     return col_data
 
 def get_features_peap(freqs, powers, fm):
+    """Get features for periodic & aperiodic model."""
 
     exp = fm.get_params('aperiodic', 'exponent')
     off = fm.get_params('aperiodic', 'offset')

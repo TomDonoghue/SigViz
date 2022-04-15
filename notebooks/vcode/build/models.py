@@ -21,11 +21,7 @@ from vcode.measures.spectra import fit_specparam
 ### AXES
 
 def make_axes_model():
-    """Make axes for combined plot.
-
-    Notes:
-    Placement definitions: Left, Bottom, Width, Height
-    """
+    """Make axes for combined plot."""
 
     fig = plt.figure()
     ax1 = fig.add_axes([0.0, 1.15, 0.5, 0.55])

@@ -25,26 +25,26 @@ def decompose_fft(data, threshold=0., max_n_waves=np.inf):
     """
 
     fft3 = np.fft.fft(data)
-    x = np.arange(0, 10, 10 / len(data))
-    freqs = np.fft.fftfreq(len(x), .01)
+    xs = np.arange(0, 10, 10 / len(data))
+    freqs = np.fft.fftfreq(len(xs), .01)
 
-    sines = np.empty([0, len(x)])
+    sines = np.empty([0, len(xs)])
     phases = []
     powers = []
 
-    for ind in range(len(fft3)):
+    for ind, value in enumerate(fft3):
 
         if ind > max_n_waves:
             break
 
-        power = abs(fft3[ind])
-        phase = cmath.phase(fft3[ind])
+        power = abs(value)
+        phase = cmath.phase(value)
         coeff = 2 if ind == 0 else 1
 
-        if power / len(x) > threshold:
+        if power / len(xs) > threshold:
 
-            sinewave = 1/(len(x)*coeff/2) * \
-                (power * np.cos(freqs[ind]*2*np.pi*x+phase))
+            sinewave = 1/(len(xs)*coeff/2) * \
+                (power * np.cos(freqs[ind]*2*np.pi*xs+phase))
 
             sines = np.vstack([sines, sinewave])
 

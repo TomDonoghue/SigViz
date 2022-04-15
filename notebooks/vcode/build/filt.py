@@ -58,7 +58,7 @@ def build_filter_properties(fs, pass_type, f_range, n_cycles, field, values,
                                 xlim=fr_xlim, ylim=fr_ylim,
                                 custom_styler=passer)
         plot_impulse_response(fs, filt_coefs, ax=axes[2],
-                              xlim=imp_xlim, ylim=imp_xlim,
+                              xlim=imp_xlim, ylim=imp_ylim,
                               custom_styler=passer)
 
         animate_plot(fig, save, next(inc), label=label, sleep=sleep)

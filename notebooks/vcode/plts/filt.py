@@ -1,8 +1,5 @@
 """Filter plot functions."""
 
-import numpy as np
-import matplotlib.pyplot as plt
-
 from .settings import TEXT_FONTDICT
 
 ###################################################################################################

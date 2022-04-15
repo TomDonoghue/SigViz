@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 from neurodsp.utils import create_samples
 
-from vcode.plts.convolution import *
+from vcode.plts.convolution import plot_sig_kernel, plot_convolution
 from vcode.plts.utils import clear_output, animate_plot
 
 ###################################################################################################

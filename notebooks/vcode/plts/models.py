@@ -8,10 +8,7 @@ from fooof.sim.gen import gen_aperiodic
 from fooof.plts.fm import _add_peaks_shade
 
 from vcode.plts.timeseries import plot_spectra
-
 from vcode.settings.bands import BANDS, COLORS
-#from vcode.settings.models import F_RANGE, YLIM
-#from vcode.settings.models import YLIM
 
 ###################################################################################################
 ###################################################################################################
@@ -19,6 +16,7 @@ from vcode.settings.bands import BANDS, COLORS
 ## POWER SPECTRA
 
 def plot_model_spectrum(model, freqs, powers, ax, **kwargs):
+    """Plot power spectrum for the model visualizer."""
 
     funcs = {
         'freq' : plot_spectra_freq,
@@ -29,6 +27,7 @@ def plot_model_spectrum(model, freqs, powers, ax, **kwargs):
     funcs[model](freqs, powers, **kwargs, ax=ax)
 
 def plot_spectra_freq(freqs, powers, ax=None, **kwargs):
+    """Plot power spectrum for frequency model."""
 
     ax = check_ax(ax)
     plot_spectra(freqs, powers,
@@ -42,6 +41,7 @@ def plot_spectra_freq(freqs, powers, ax=None, **kwargs):
                  colors='black', alpha=0.35, lw=1.5, ax=ax)
 
 def plot_spectra_band(freqs, powers, ax=None, **kwargs):
+    """Plot power spectrum for bands model."""
 
     ax = check_ax(ax)
     plot_spectra(freqs, powers,
@@ -52,6 +52,7 @@ def plot_spectra_band(freqs, powers, ax=None, **kwargs):
                  colors='black', alpha=0.75, ax=ax)
 
 def plot_spectra_peap(freqs, powers, fm, ax=None, **kwargs):
+    """Plot power spectrum for periodic & aperiodic model."""
 
     ax = check_ax(ax)
     plot_spectra(freqs, powers,
@@ -69,6 +70,7 @@ def plot_spectra_peap(freqs, powers, fm, ax=None, **kwargs):
 ## TEXT
 
 def add_model_text(model, ax=None):
+    """Add text to model visualizer."""
 
     ax = check_ax(ax)
     fontdict = {'fontsize' : 24}
@@ -79,8 +81,6 @@ def add_model_text(model, ax=None):
         'peap' : 'Periodic\n&\nAperiodic'
     }
 
-    ax.text(0.5, 0.85, "Model:",
-            fontdict=fontdict, ha='center')
-    ax.text(0.5, 0.35, texts[model],
-            fontdict=fontdict, ha='center')
+    ax.text(0.5, 0.85, "Model:", fontdict=fontdict, ha='center')
+    ax.text(0.5, 0.35, texts[model], fontdict=fontdict, ha='center')
     ax.axis('off')

@@ -2,7 +2,7 @@
 
 import matplotlib.pyplot as plt
 
-from vcode.plts.fft import *
+from vcode.plts.fft import plot_sines, plot_recomb, plot_powers, plot_phases
 from vcode.plts.utils import clear_output, animate_plot
 
 ###################################################################################################

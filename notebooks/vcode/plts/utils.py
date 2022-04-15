@@ -21,3 +21,6 @@ def animate_plot(fig, save, build_ind, label='fig', sleep=0.01, folder='outputs'
     else:
         plt.show();
         time.sleep(sleep)
+
+# Helper function to pass through for custom styling
+def passer(*args, **kwargs): pass

@@ -10,3 +10,6 @@ docs/.jekyll-cache/
 
 # Ignore outputs folder
 /notebooks/outputs/*
+
+# Ignore scratch files
+**scratch**

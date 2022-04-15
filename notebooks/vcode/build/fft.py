@@ -30,7 +30,7 @@ def make_axes_sigs():
     return fig, [ax1, ax2]
 
 
-def make_axes():
+def make_axes_fft():
     """Make axes for combined FFT visualizer."""
 
     fig = plt.figure()
@@ -63,16 +63,6 @@ def build_recomb(sines, data, n_build=np.inf, sleep=0.05):
         animate_plot(plt.gcf(), False, ind, sleep=sleep)
 
 
-def build_phases(phases, n_build=np.inf, sleep=0.05):
-    """Build the phase plot (animated)."""
-
-    for ind in range(min(len(phases), n_build)):
-
-        clear_output(wait=True)
-        plot_phases(phases[0:ind])
-        animate_plot(plt.gcf(), False, ind, sleep=sleep)
-
-
 def build_powers(freqs, powers, n_build=np.inf, sleep=0.05):
     """Build the powers plot (animated)."""
 
@@ -80,6 +70,16 @@ def build_powers(freqs, powers, n_build=np.inf, sleep=0.05):
 
         clear_output(wait=True)
         plot_powers(freqs[0:ind], powers[0:ind])
+        animate_plot(plt.gcf(), False, ind, sleep=sleep)
+
+
+def build_phases(phases, n_build=np.inf, sleep=0.05):
+    """Build the phase plot (animated)."""
+
+    for ind in range(min(len(phases), n_build)):
+
+        clear_output(wait=True)
+        plot_phases(phases[0:ind])
         animate_plot(plt.gcf(), False, ind, sleep=sleep)
 
 
@@ -111,7 +111,7 @@ def build_sigs(sines, data, n_build=np.inf, sleep=0.05):
         animate_plot(fig, False, ind, sleep=sleep)
 
 
-def build_all(sines, data, freqs, phases, powers, n_build=np.inf,
+def build_fft(sines, data, freqs, phases, powers, n_build=np.inf,
               sleep=0.05, save=False, label='01_fft_pe'):
     """Build all plots together."""
 
@@ -119,7 +119,7 @@ def build_all(sines, data, freqs, phases, powers, n_build=np.inf,
 
         clear_output(wait=True)
 
-        fig, axes = make_axes()
+        fig, axes = make_axes_fft()
 
         plot_sines(sines[0:ind, :], ax=axes[0])
         plot_recomb(sines[0:ind, :], data, ax=axes[1])

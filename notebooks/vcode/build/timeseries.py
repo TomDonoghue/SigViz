@@ -1,10 +1,11 @@
 """Builder functions for timeseries plots."""
 
+import numpy as np
 import matplotlib.pyplot as plt
 
 from neurodsp.spectral import compute_spectrum, trim_spectrum
 
-from vcode.plts.timeseries import *
+from vcode.plts.timeseries import plot_timeseries, plot_spectra
 from vcode.plts.utils import clear_output, animate_plot
 from vcode.utils.data import yield_sig
 
@@ -13,7 +14,7 @@ from vcode.utils.data import yield_sig
 
 ### AXES
 
-def make_axes():
+def make_axes_timeseries():
     """Make axes for combined plot."""
 
     fig = plt.figure()
@@ -24,7 +25,8 @@ def make_axes():
 
 ### BUILDERS
 
-def build_all(sig, fs, n_build=np.inf, sleep=0.05, label='viz', save=False):
+def build_timeseries(sig, fs, n_build=np.inf,
+                     sleep=0.05, save=False, label='viz'):
     """Build all plots together."""
 
     size = 750
@@ -37,7 +39,7 @@ def build_all(sig, fs, n_build=np.inf, sleep=0.05, label='viz', save=False):
 
         clear_output(wait=True)
 
-        fig, axes = make_axes()
+        fig, axes = make_axes_timeseries()
 
         spect_sig = sig[start + step * ind-2000:start + step * ind+2000]
         freqs, powers = trim_spectrum(*compute_spectrum(spect_sig, fs=fs), [1, 50])

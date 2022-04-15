@@ -13,7 +13,7 @@ from vcode.plts.utils import clear_output, animate_plot
 
 ### AXES
 
-def make_axes():
+def make_axes_convolution():
     """Make axes for combined plot."""
 
     fig = plt.figure()
@@ -57,7 +57,8 @@ def build_convolution_output(sig, kernel, sleep=0.025):
         animate_plot(plt.gcf(), False, ind, sleep=sleep)
 
 
-def build_all(sig, kernel, sleep=0.025, label='conv', save=False, **kwargs):
+def build_convolution(sig, kernel,
+                      sleep=0.025, save=False, label='conv', **kwargs):
     """Build all plots together for convolution visualizer."""
 
     samps = create_samples(len(kernel))
@@ -68,7 +69,7 @@ def build_all(sig, kernel, sleep=0.025, label='conv', save=False, **kwargs):
     for ind in range(0, len(sig)-len(kernel) + 1, 1):
 
         clear_output(wait=True)
-        fig, axes = make_axes()
+        fig, axes = make_axes_convolution()
 
         convolved[ind+halfwid] = np.dot(sig[samps+ind], kernel)
 

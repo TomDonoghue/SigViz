@@ -5,7 +5,6 @@ from itertools import repeat
 
 import numpy as np
 
-from fooof.plts.utils import add_shades
 from neurodsp.plts.utils import check_ax
 
 ###################################################################################################
@@ -43,7 +42,7 @@ def plot_timeseries(signals, shade=None, colors=None, xlim=None, ylim=None,
 
 
 def plot_spectra(freqs, powers, log_freqs=True, log_powers=True, xlim=None, ylim=None,
-                 colors=None, shade_ranges=None, shade_colors=None, ax=None, **plt_kwargs):
+                 colors=None, ax=None, **plt_kwargs):
     """Plot power spectra."""
 
     ax = check_ax(ax)
@@ -65,9 +64,6 @@ def plot_spectra(freqs, powers, log_freqs=True, log_powers=True, xlim=None, ylim
             power = np.log10(power)
 
         ax.plot(freqs, power, color=color, **plt_kwargs)
-
-    if shade_ranges:
-        add_shades(ax, shade_ranges, shade_colors, logged=log_freqs)
 
     if xlim:
         ax.set_xlim(np.log10(xlim) if log_freqs else xlim)

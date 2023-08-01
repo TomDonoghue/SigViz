@@ -23,7 +23,7 @@ def make_axes_filter_properties():
     fig = plt.figure()
     ax1 = fig.add_axes([0.0, 0.8, 0.15, 0.75])
     ax1.axis('off')
-    ax2 = fig.add_axes([0.3, 0.8, 0.75, 0.75])
+    ax2 = fig.add_axes([0.325, 0.8, 0.75, 0.75])
     ax3 = fig.add_axes([1.3, 0.8, 0.75, 0.75])
 
     return fig, [ax1, ax2, ax3]

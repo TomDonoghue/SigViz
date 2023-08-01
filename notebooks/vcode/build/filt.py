@@ -1,5 +1,6 @@
 """Builder functions for filters."""
 
+import numpy as np
 import matplotlib.pyplot as plt
 
 from neurodsp.filt.fir import design_fir_filter, apply_fir_filter
@@ -22,7 +23,7 @@ def make_axes_filter_properties():
     fig = plt.figure()
     ax1 = fig.add_axes([0.0, 0.8, 0.15, 0.75])
     ax1.axis('off')
-    ax2 = fig.add_axes([0.35, 0.8, 0.75, 0.75])
+    ax2 = fig.add_axes([0.3, 0.8, 0.75, 0.75])
     ax3 = fig.add_axes([1.3, 0.8, 0.75, 0.75])
 
     return fig, [ax1, ax2, ax3]
@@ -88,6 +89,8 @@ def build_filter_ouput(sig, fs, pass_type, f_range, n_cycles, field, values,
     if field == 'bandwidth':
         cen = f_range
 
+    x_vals = np.arange(len(sig))
+
     inc = incrementer()
     for value in values:
 
@@ -109,14 +112,17 @@ def build_filter_ouput(sig, fs, pass_type, f_range, n_cycles, field, values,
         ax1.set(xticks=[], yticks=[]);
         ax1.set_title('Filter Kernel')
 
-        ax2.plot(sig, color='black', alpha=0.85)
+        ax2.plot(x_vals, sig, color='black', alpha=0.85)
         ax2.set(xticks=[], yticks=[]);
         ax2.set_ylabel('Input')
+        ax2.set_xlim(x_vals[0], x_vals[-1])
+        ax2.set_ylim([-1.1, 1.1])
 
-        ax3.plot(filt_output, color='green', alpha=0.85)
+        ax3.plot(x_vals, filt_output, color='green', alpha=0.85)
         ax3.set(xticks=[], yticks=[]);
         ax3.set_ylabel('Output')
-        ax3.set_ylim([-1, 1])
+        ax3.set_xlim(x_vals[0], x_vals[-1])
+        ax3.set_ylim([-1.1, 1.1])
 
         add_filter_text(ax4, pass_type, f_range, n_cycles)
 

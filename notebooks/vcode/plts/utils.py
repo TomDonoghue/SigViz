@@ -1,6 +1,8 @@
 """Utility functions for creating plotting / gifs."""
 
+import os
 import time
+from pathlib import Path
 
 from IPython.display import clear_output
 
@@ -14,8 +16,12 @@ def animate_plot(fig, save, build_ind, label='fig', sleep=0.01, folder='outputs'
     Notes: if set to save, the plot is not displayed.
     """
 
+    output_path = Path(folder) / label
+    if not os.path.exists(output_path):
+        os.mkdir(output_path)
+
     if save:
-        fig.savefig(folder + '/' + label + '/gif_' + str(build_ind) + '.jpg',
+        fig.savefig(output_path / ('gif_' + str(build_ind) + '.jpg'),
                     bbox_inches="tight", dpi=600, transparent=False)
         plt.close()
     else:

@@ -17,6 +17,7 @@ This page contains the following sections:
 - [Time Domain Signals](#time-domain-signals)
 - [Fourier Transforms](#fourier-transforms)
 - [Convolution](#convolution)
+- [Filters](#filters)
 
 ### Time Domain Signals
 
@@ -64,14 +65,13 @@ Finally, we have a bursty signal:
 
 ![ts-comb-burst](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/01-timeseries/ts-comb-burst.gif)
 
-
 ### Fourier Transforms
 
 In the following visualization, a time series (bottom left, black) is reconstructed (red), by a sum of many sinusoids (top left). On the right, the phase (top) and amplitude (bottom) of each sine wave is plotted.
 
 #### Aperiodic Signal
 
-In the following, the time series is an aperiodic, pink noise signal, decomponsed by an FFT:
+In the following, the time series is an aperiodic, pink noise signal, decomposed by an FFT:
 
 ![fft-ap](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/02-fft/fft-aperiodic.gif)
 
@@ -113,3 +113,53 @@ Some technical notes on the convolution:
 - Only the range where the kernel fully overlaps the signal is shown
 - By definition, convolution applies the reverse of the kernel
     - In these examples, the kernel is symmetric, so it doesn't change anything
+
+### Filters
+
+This section explores applying (FIR) filters to time series.
+
+#### Filters as Convolution
+
+Applying a filter to a time series can be visualized as the convolution of a filter kernel with the data.
+
+For a first example, we can see this as a filter kernel (for a narrowband bandpass filter) to a 'combined' signal:
+
+![filtconv-combined](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/04-filters/filtconv-combined.gif)
+
+<br>
+
+Notably, applying a filter does not guarantee the extraction of a rhythmic component of the signal.
+
+For example, we can see this in the 'ringing' in the output of applying a filter to a step function:
+
+![filtconv-step](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/04-filters/filtconv-step.gif)
+
+<br>
+
+Notably, due to the shape of the filter kernel, outputs will tend to be smooth & rhythmic, even if the original data is neither.
+
+For example, if we apply a bandpass filter to aperiodic (pink noise) data (non-rhythmic by definition) - the filter output still looks rhythmic:
+
+![filtconv-aperiodic](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/04-filters/filtconv-aperiodic.gif)
+
+<br>
+
+![filtconv-burst](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/04-filters/filtconv-burst.gif)
+
+#### TITLE
+
+![filtout-step-ncycles](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/04-filters/filtout-step-ncycles.gif)
+
+![filtout-step-bandwidth](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/04-filters/filtout-step-bandwidth.gif)
+
+#### Filter Properties
+
+![filtparam-ncycles](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/04-filters/filtparam-ncycles.gif)
+
+![filtparam-bandwidth](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/04-filters/filtparam-bandwidth.gif)
+
+#### TITLE
+
+![filtprop-burst-ncycles](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/04-filters/filtprop-burst-ncycles.gif)
+
+![filtprop-burst-bandwidth](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/04-filters/filtprop-burst-bandwidth.gif)

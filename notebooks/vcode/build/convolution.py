@@ -76,4 +76,4 @@ def build_convolution(sig, kernel,
         plot_sig_kernel(sig, samps+ind, kernel, ax=axes[0], **kwargs)
         plot_convolution(samples, convolved, ax=axes[1], **kwargs)
 
-        animate_plot(fig, save, ind, label='03_' + label, sleep=sleep)
+        animate_plot(fig, save, ind, label=label, sleep=sleep)

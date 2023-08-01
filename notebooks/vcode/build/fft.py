@@ -112,7 +112,7 @@ def build_sigs(sines, data, n_build=np.inf, sleep=0.05):
 
 
 def build_fft(sines, data, freqs, phases, powers, n_build=np.inf,
-              sleep=0.05, save=False, label='01_fft_pe'):
+              sleep=0.05, save=False, label='fft'):
     """Build all plots together."""
 
     for ind in range(min(n_build, sines.shape[0])):

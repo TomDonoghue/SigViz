@@ -67,7 +67,8 @@ Finally, we have a bursty signal:
 
 ### Fourier Transforms
 
-In the following visualization, a time series (bottom left, black) is reconstructed (red), by a sum of many sinusoids (top left). On the right, the phase (top) and amplitude (bottom) of each sine wave is plotted.
+In the following visualization, a time series (bottom left, black) is reconstructed (red), by a sum of many sinusoids (top left).
+On the right, the phase (top) and amplitude (bottom) of each sine wave is plotted.
 
 #### Aperiodic Signal
 
@@ -128,13 +129,13 @@ First, we can use a simplified example showing the application of a filter kerne
 
 <br>
 
-Next, we can look at a filter kernel (for a narrowband bandpass filter) to a 'combined' signal:
+Next, we can look at a applying a filter kernel to a 'combined' signal:
 
 ![filtconv-combined](https://raw.githubusercontent.com/TomDonoghue/SigViz/main/gifs/04-filters/filtconv-combined.gif)
 
 <br>
 
-Notably, applying a filter does not guarantee the extraction of a rhythmic component of the signal.
+Applying a filter does not guarantee the extraction of a rhythmic component of the signal.
 
 For example, we can see this in the 'ringing' in the output of applying a filter to a step function:
 

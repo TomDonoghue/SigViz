@@ -53,3 +53,9 @@ An FFT gif, decomposing a signal with aperiodic activity and a periodic componen
 A convolution gif, showing the convolution of a signal (grey) with a Gaussian kernel (red).
 
 ![convolution](/gifs/03-convolution/convolution-short.gif)
+
+### Filters
+
+A filter gif, showing effect of different filter kernels on the output, when applying to a 'burst' signal.
+
+![filter](/gifs/04-filters/filtprop-burst-ncycles.gif)
